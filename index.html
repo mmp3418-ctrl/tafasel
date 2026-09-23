@@ -69,7 +69,6 @@
             --t-normal: 0.5s var(--ease);
             --t-slow: 0.8s var(--ease);
 
-            /* ✅ الشريط العلوي: أصغر قليلاً */
             --logo-size: 78px;
             --header-height: 95px;
             --header-height-scrolled: 70px;
@@ -144,19 +143,19 @@
             position: relative;
         }
 
-        /* ✅ تحسين شكل العناوين */
+        /* ✅ العناوين - مترابطة ومنفصلة، منتظمة على الهواتف */
         .section-head {
             text-align: center;
             max-width: 720px;
             margin: 0 auto 64px;
             position: relative;
-            padding: 0 20px;
+            padding: 24px 20px 28px;
         }
 
         .section-head::before {
             content: '';
             position: absolute;
-            top: -20px;
+            top: 0;
             left: 50%;
             transform: translateX(-50%);
             width: 60px;
@@ -168,7 +167,7 @@
         .section-head::after {
             content: '';
             position: absolute;
-            bottom: -32px;
+            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
             width: 120px;
@@ -211,19 +210,20 @@
         }
 
         .section-title {
-            font-size: clamp(1.75rem, 4vw, 2.75rem);
+            font-size: clamp(1.6rem, 4vw, 2.75rem);
             font-weight: 700;
             color: var(--color-primary-dark);
             margin-bottom: 18px;
-            line-height: 1.2;
+            line-height: 1.3;
             position: relative;
             display: inline-block;
+            padding-bottom: 14px;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: 0;
             right: 50%;
             transform: translateX(50%);
             width: 50px;
@@ -234,11 +234,11 @@
         }
 
         .section-desc {
-            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             color: var(--gray-700);
             line-height: 1.8;
             max-width: 600px;
-            margin: 16px auto 0;
+            margin: 8px auto 0;
         }
 
         /* BUTTONS */
@@ -308,7 +308,7 @@
             box-shadow: 0 12px 32px rgba(201, 168, 76, 0.45);
         }
 
-        /* ✅ HEADER - شفاف قليلاً في البداية، زجاجي عند النزول */
+        /* HEADER */
         .header {
             position: fixed;
             top: 0;
@@ -318,7 +318,6 @@
             height: var(--header-height);
             display: flex;
             align-items: center;
-            /* ✅ شفاف قليلاً في البداية بدون blur */
             background: rgba(255, 255, 255, 0.55);
             transition: height 0.4s var(--ease), background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease, border-bottom 0.4s ease;
             border: none;
@@ -326,7 +325,6 @@
             box-shadow: 0 2px 12px rgba(26, 42, 58, 0.04);
         }
 
-        /* ✅ عند النزول: زجاجي كامل مع blur وحدود */
         .header.scrolled {
             background: rgba(255, 255, 255, 0.72);
             backdrop-filter: blur(24px) saturate(180%);
@@ -351,7 +349,6 @@
             flex-shrink: 0;
         }
 
-        /* ✅ الشعار lo.png مع خلفية داكنة دائرية */
         .logo img {
             height: var(--logo-size);
             width: var(--logo-size);
@@ -527,6 +524,7 @@
             transform: translateY(-7px) rotate(-45deg);
         }
 
+        /* ✅ Mobile Menu - منظم وأصغر */
         .mobile-menu {
             position: fixed;
             top: var(--header-height);
@@ -544,26 +542,26 @@
         }
 
         .mobile-menu.active {
-            max-height: 800px;
+            max-height: 700px;
             overflow-y: auto;
         }
 
         .mobile-menu-inner {
-            padding: 16px 24px 24px;
+            padding: 12px 16px 20px;
         }
 
         .mobile-link {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 16px 20px;
+            gap: 10px;
+            padding: 12px 16px;
             font-family: var(--font-heading);
-            font-size: 1rem;
+            font-size: 0.92rem;
             font-weight: 600;
             color: var(--gray-700);
             border-radius: var(--r-md);
             transition: var(--t-fast);
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .mobile-link:hover,
@@ -573,33 +571,35 @@
         }
 
         .mobile-link svg {
-            width: 22px;
-            height: 22px;
+            width: 18px;
+            height: 18px;
             color: var(--color-secondary-blue);
             flex-shrink: 0;
         }
 
         .mobile-contact {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-top: 16px;
-            padding-top: 16px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            margin-top: 12px;
+            padding-top: 12px;
             border-top: 1px solid var(--gray-100);
         }
 
         .mobile-contact-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 12px 16px;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 10px;
             background: var(--dark-50);
             border-radius: var(--r-md);
             font-family: var(--font-heading);
-            font-size: 0.9rem;
+            font-size: 0.78rem;
             font-weight: 600;
             color: var(--color-primary-dark);
             transition: var(--t-fast);
+            text-align: center;
         }
 
         .mobile-contact-item:hover {
@@ -607,15 +607,21 @@
         }
 
         .mobile-contact-item svg {
-            width: 18px;
-            height: 18px;
+            width: 15px;
+            height: 15px;
             color: var(--color-secondary-blue);
             flex-shrink: 0;
         }
 
+        .mobile-contact-item.full-width {
+            grid-column: 1 / -1;
+        }
+
         .mobile-cta {
-            margin-top: 16px;
+            margin-top: 12px;
             width: 100%;
+            padding: 12px 22px;
+            font-size: 0.88rem;
         }
 
         /* HERO */
@@ -868,11 +874,11 @@
             flex-shrink: 0;
         }
 
-        /* SERVICES */
+        /* ✅ SERVICES - منتظمة على الهواتف */
         .services-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 24px;
+            gap: 20px;
         }
 
         .service-card {
@@ -881,11 +887,14 @@
             -webkit-backdrop-filter: var(--glass-blur);
             border: 1px solid var(--glass-border);
             border-radius: var(--r-lg);
-            padding: 40px 32px;
+            padding: 32px 26px;
             transition: var(--t-normal);
             position: relative;
             overflow: hidden;
             box-shadow: var(--glass-shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .service-card::before {
@@ -913,21 +922,22 @@
         }
 
         .service-icon {
-            width: 68px;
-            height: 68px;
+            width: 60px;
+            height: 60px;
             border-radius: var(--r-md);
             background: linear-gradient(135deg, var(--color-primary-dark), var(--color-secondary-blue));
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             transition: var(--t-normal);
             box-shadow: 0 8px 24px rgba(26, 42, 58, 0.2);
+            flex-shrink: 0;
         }
 
         .service-icon svg {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             color: var(--white);
             stroke-width: 1.8;
             transition: var(--t-fast);
@@ -945,16 +955,16 @@
 
         .service-title {
             font-family: var(--font-heading);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--color-primary-dark);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .service-desc {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--gray-700);
-            line-height: 1.75;
+            line-height: 1.7;
         }
 
         /* ABOUT */
@@ -1019,19 +1029,12 @@
             color: var(--color-primary-dark);
         }
 
+        .about-content {
+            text-align: center;
+        }
+
         .about-content .section-title {
-            text-align: right;
-            display: block;
-        }
-
-        .about-content .section-title::after {
-            right: 0;
-            transform: none;
-        }
-
-        .about-content .section-desc {
-            text-align: right;
-            margin: 16px 0 24px;
+            display: inline-block;
         }
 
         .about-text {
@@ -1094,11 +1097,11 @@
             color: var(--color-primary-dark);
         }
 
-        /* WHY US */
+        /* ✅ WHY US - منتظمة على الهواتف */
         .why-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 18px;
         }
 
         .why-card {
@@ -1107,10 +1110,13 @@
             -webkit-backdrop-filter: var(--glass-blur);
             border: 1px solid var(--glass-border);
             border-radius: var(--r-lg);
-            padding: 32px 28px;
+            padding: 28px 24px;
             transition: var(--t-normal);
             position: relative;
             box-shadow: var(--glass-shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .why-card:hover {
@@ -1124,15 +1130,15 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 52px;
-            height: 52px;
+            width: 48px;
+            height: 48px;
             border-radius: var(--r-md);
             background: linear-gradient(135deg, var(--color-primary-dark), var(--color-secondary-blue));
             color: var(--white);
             font-family: var(--font-heading);
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             transition: var(--t-fast);
             box-shadow: 0 8px 24px rgba(26, 42, 58, 0.2);
         }
@@ -1146,16 +1152,16 @@
 
         .why-title {
             font-family: var(--font-heading);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: var(--color-primary-dark);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .why-desc {
-            font-size: 0.92rem;
+            font-size: 0.88rem;
             color: var(--gray-700);
-            line-height: 1.7;
+            line-height: 1.65;
         }
 
         /* STATS */
@@ -1297,9 +1303,9 @@
 
         .contact-item {
             display: flex;
-            align-items: center;
-            gap: 18px;
-            padding: 22px 24px;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px 22px;
             background: var(--glass-bg);
             backdrop-filter: var(--glass-blur);
             -webkit-backdrop-filter: var(--glass-blur);
@@ -1317,8 +1323,8 @@
         }
 
         .contact-icon {
-            width: 56px;
-            height: 56px;
+            width: 52px;
+            height: 52px;
             border-radius: var(--r-md);
             background: linear-gradient(135deg, var(--color-accent-gold), var(--color-accent-gold-light));
             display: flex;
@@ -1329,8 +1335,8 @@
         }
 
         .contact-icon svg {
-            width: 26px;
-            height: 26px;
+            width: 24px;
+            height: 24px;
             color: var(--color-primary-dark);
             stroke-width: 2;
         }
@@ -1345,17 +1351,23 @@
 
         .contact-label {
             font-family: var(--font-heading);
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: 600;
             color: var(--gray-500);
         }
 
         .contact-value {
             font-family: var(--font-heading);
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             color: var(--color-primary-dark);
             word-break: break-word;
+        }
+
+        .contact-value + .contact-value {
+            margin-top: 6px;
+            padding-top: 6px;
+            border-top: 1px dashed rgba(58, 107, 140, 0.15);
         }
 
         .contact-phones {
@@ -1425,7 +1437,6 @@
             height: 14px;
         }
 
-        /* ✅ روابط التواصل الاجتماعي منفصلة */
         .social-links-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -2054,19 +2065,6 @@
             margin-left: auto;
         }
 
-        html[dir="ltr"] .about-content .section-title {
-            text-align: left;
-        }
-
-        html[dir="ltr"] .about-content .section-title::after {
-            right: auto;
-            left: 0;
-        }
-
-        html[dir="ltr"] .about-content .section-desc {
-            text-align: left;
-        }
-
         html[dir="ltr"] .footer-col-title::after {
             right: auto;
             left: 0;
@@ -2083,10 +2081,12 @@
             
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 22px;
             }
             
             .why-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
             }
             
             .gallery-grid {
@@ -2140,6 +2140,10 @@
                 grid-template-columns: 1fr 1fr;
             }
 
+            .about-content {
+                text-align: right;
+            }
+
             .contact-grid {
                 grid-template-columns: 1fr 1fr;
                 align-items: stretch;
@@ -2164,10 +2168,12 @@
 
             .services-grid {
                 grid-template-columns: repeat(4, 1fr);
+                gap: 24px;
             }
 
             .why-grid {
                 grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
             }
 
             .gallery-grid {
@@ -2180,49 +2186,49 @@
             }
         }
 
-        /* RESPONSIVE - MOBILE */
+        /* ✅ RESPONSIVE - MOBILE محسّن بالكامل */
         @media (max-width: 767px) {
             :root {
-                --section-y: 56px;
-                --logo-size: 88px;
-                --header-height: 105px;
-                --header-height-scrolled: 74px;
+                --section-y: 50px;
+                --logo-size: 70px;
+                --header-height: 88px;
+                --header-height-scrolled: 68px;
             }
 
             .container {
-                padding: 0 18px;
+                padding: 0 16px;
             }
 
             .logo {
-                gap: 10px;
+                gap: 8px;
             }
 
             .logo img {
                 height: var(--logo-size);
                 width: var(--logo-size);
-                padding: 9px;
+                padding: 8px;
             }
 
             .header.scrolled .logo img {
-                height: 58px;
-                width: 58px;
-                padding: 6px;
+                height: 48px;
+                width: 48px;
+                padding: 5px;
             }
 
             .logo-name {
-                font-size: 1.05rem;
+                font-size: 1rem;
             }
 
             .header.scrolled .logo-name {
-                font-size: 0.92rem;
+                font-size: 0.88rem;
             }
 
             .logo-tag {
-                font-size: 0.68rem;
+                font-size: 0.62rem;
             }
 
             .header.scrolled .logo-tag {
-                font-size: 0.6rem;
+                font-size: 0.56rem;
             }
 
             .mobile-menu {
@@ -2230,166 +2236,211 @@
             }
 
             .hero {
-                padding: 145px 0 70px;
+                padding: 130px 0 60px;
                 min-height: auto;
             }
 
             .hero-title {
-                font-size: clamp(1.6rem, 7vw, 2.4rem);
+                font-size: clamp(1.5rem, 6.5vw, 2.2rem);
             }
 
             .hero-desc {
-                font-size: 0.95rem;
-                margin-bottom: 30px;
+                font-size: 0.9rem;
+                margin-bottom: 26px;
             }
 
             .hero-visual-wrap {
-                max-width: 280px;
+                max-width: 260px;
             }
 
             .hero-badge-float {
-                padding: 8px 12px;
+                padding: 7px 11px;
+                gap: 7px;
             }
 
             .hero-badge-icon {
-                width: 32px;
-                height: 32px;
+                width: 30px;
+                height: 30px;
+                border-radius: 9px;
             }
 
             .hero-badge-icon svg {
-                width: 16px;
-                height: 16px;
+                width: 15px;
+                height: 15px;
             }
 
             .hero-badge-value {
-                font-size: 0.85rem;
+                font-size: 0.8rem;
             }
 
             .hero-badge-label {
-                font-size: 0.62rem;
+                font-size: 0.6rem;
             }
 
             .hero-actions .btn {
                 flex: 1 1 100%;
-                padding: 14px 24px;
-                font-size: 0.9rem;
-            }
-
-            .section-head {
-                margin-bottom: 44px;
-                padding: 0 10px;
-            }
-
-            .section-head::before {
-                top: -14px;
-                width: 45px;
-                height: 2px;
-            }
-
-            .section-head::after {
-                bottom: -22px;
-                width: 80px;
-            }
-
-            .eyebrow {
-                padding: 7px 18px;
-                font-size: 0.75rem;
-                margin-bottom: 18px;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-                margin-bottom: 14px;
-            }
-
-            .section-title::after {
-                width: 40px;
-                height: 2.5px;
-                bottom: -6px;
-            }
-
-            .section-desc {
-                font-size: 0.92rem;
-                margin-top: 12px;
-            }
-
-            .service-card,
-            .why-card {
-                padding: 26px 22px;
-            }
-
-            .service-icon {
-                width: 56px;
-                height: 56px;
-            }
-
-            .service-icon svg {
-                width: 26px;
-                height: 26px;
-            }
-
-            .service-title {
-                font-size: 1.05rem;
-            }
-
-            .service-desc {
+                padding: 13px 22px;
                 font-size: 0.88rem;
             }
 
+            /* ✅ العناوين منتظمة على الهواتف */
+            .section-head {
+                margin-bottom: 36px;
+                padding: 18px 12px 22px;
+            }
+
+            .section-head::before {
+                width: 50px;
+                height: 3px;
+            }
+
+            .section-head::after {
+                width: 90px;
+                height: 1px;
+            }
+
+            .eyebrow {
+                padding: 7px 16px;
+                font-size: 0.72rem;
+                margin-bottom: 16px;
+            }
+
+            .section-title {
+                font-size: 1.35rem;
+                margin-bottom: 14px;
+                padding-bottom: 12px;
+                line-height: 1.35;
+            }
+
+            .section-title::after {
+                width: 42px;
+                height: 3px;
+            }
+
+            .section-desc {
+                font-size: 0.88rem;
+                margin-top: 6px;
+            }
+
+            /* ✅ بطاقات الخدمات منتظمة */
+            .services-grid {
+                gap: 14px;
+            }
+
+            .service-card {
+                padding: 24px 20px;
+                border-radius: var(--r-md);
+            }
+
+            .service-icon {
+                width: 52px;
+                height: 52px;
+                border-radius: 16px;
+                margin-bottom: 16px;
+            }
+
+            .service-icon svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .service-title {
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+
+            .service-desc {
+                font-size: 0.85rem;
+                line-height: 1.65;
+            }
+
+            /* ✅ بطاقات لماذا نحن منتظمة */
+            .why-grid {
+                gap: 12px;
+            }
+
+            .why-card {
+                padding: 22px 18px;
+                border-radius: var(--r-md);
+            }
+
+            .why-num {
+                width: 44px;
+                height: 44px;
+                font-size: 1rem;
+                margin-bottom: 14px;
+            }
+
+            .why-title {
+                font-size: 0.98rem;
+                margin-bottom: 6px;
+            }
+
+            .why-desc {
+                font-size: 0.82rem;
+                line-height: 1.6;
+            }
+
             .about-grid {
-                gap: 36px;
-            }
-
-            .about-content .section-title,
-            .about-content .section-desc {
-                text-align: center;
-            }
-
-            .about-content .section-title::after {
-                right: 50%;
-                transform: translateX(50%);
+                gap: 32px;
             }
 
             .about-text {
-                font-size: 0.92rem;
-                text-align: center;
+                font-size: 0.9rem;
+            }
+
+            .about-list-item {
+                padding: 12px 14px;
+            }
+
+            .about-list-item span {
+                font-size: 0.88rem;
             }
 
             .cta-card {
-                padding: 48px 22px;
+                padding: 44px 20px;
+                border-radius: var(--r-lg);
             }
 
             .cta-title {
-                font-size: 1.3rem;
+                font-size: 1.25rem;
             }
 
             .cta-desc {
-                font-size: 0.92rem;
+                font-size: 0.9rem;
+                margin-bottom: 24px;
             }
 
             .cta-buttons .btn {
                 flex: 1 1 100%;
-                padding: 14px 22px;
-                font-size: 0.9rem;
+                padding: 13px 20px;
+                font-size: 0.88rem;
             }
 
+            /* ✅ بطاقات التواصل */
             .contact-item {
-                padding: 16px 18px;
-                gap: 14px;
+                padding: 16px 16px;
+                gap: 12px;
+                border-radius: var(--r-md);
             }
 
             .contact-icon {
-                width: 46px;
-                height: 46px;
+                width: 44px;
+                height: 44px;
+                border-radius: 14px;
             }
 
             .contact-icon svg {
-                width: 22px;
-                height: 22px;
+                width: 20px;
+                height: 20px;
+            }
+
+            .contact-label {
+                font-size: 0.72rem;
             }
 
             .contact-value {
-                font-size: 0.92rem;
+                font-size: 0.88rem;
             }
 
             .contact-phone-row {
@@ -2404,15 +2455,22 @@
 
             .social-links-grid {
                 grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .social-link-card {
+                padding: 12px 14px;
+                font-size: 0.82rem;
             }
 
             .map-cta-box {
-                min-height: 240px;
+                min-height: 200px;
+                padding: 28px 18px;
             }
 
             .map-cta-box .btn {
-                padding: 16px 24px;
-                font-size: 0.95rem;
+                padding: 15px 22px;
+                font-size: 0.92rem;
             }
 
             .map-cta-box .btn svg {
@@ -2421,13 +2479,13 @@
             }
 
             .footer-brand-logo {
-                height: 95px;
-                width: 95px;
+                height: 85px;
+                width: 85px;
                 padding: 10px;
             }
 
             .footer-brand .logo-name {
-                font-size: 1.3rem;
+                font-size: 1.25rem;
             }
 
             .float-buttons {
@@ -2438,8 +2496,9 @@
 
             .float-btn,
             .back-top {
-                width: 48px;
-                height: 48px;
+                width: 46px;
+                height: 46px;
+                border-radius: 14px;
             }
 
             .float-btn svg,
@@ -2453,12 +2512,16 @@
                 right: 14px;
             }
 
+            .trust-bar {
+                padding: 24px 0;
+            }
+
             .trust-bar-inner {
-                gap: 16px 24px;
+                gap: 14px 20px;
             }
 
             .trust-item {
-                font-size: 0.82rem;
+                font-size: 0.78rem;
             }
 
             .trust-item svg {
@@ -2471,30 +2534,34 @@
                 gap: 8px;
             }
 
+            .gallery-item {
+                border-radius: var(--r-md);
+            }
+
             .stats-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
-                max-width: 380px;
+                gap: 18px;
+                max-width: 340px;
             }
 
             .stat-item {
-                padding: 36px 20px;
+                padding: 32px 18px;
             }
 
             .stat-value {
-                font-size: 3rem;
+                font-size: 2.6rem;
             }
 
             .stat-label {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
         }
 
         @media (max-width: 380px) {
             :root {
-                --header-height: 98px;
-                --header-height-scrolled: 70px;
-                --logo-size: 80px;
+                --header-height: 82px;
+                --header-height-scrolled: 64px;
+                --logo-size: 64px;
             }
 
             .container {
@@ -2502,34 +2569,39 @@
             }
 
             .logo-name {
-                font-size: 0.92rem;
+                font-size: 0.9rem;
             }
 
             .header.scrolled .logo-name {
-                font-size: 0.82rem;
+                font-size: 0.8rem;
             }
 
             .logo-tag {
-                font-size: 0.58rem;
+                font-size: 0.56rem;
             }
 
             .hero-visual-wrap {
-                max-width: 240px;
+                max-width: 220px;
             }
 
             .footer-brand-logo {
-                height: 85px;
-                width: 85px;
+                height: 78px;
+                width: 78px;
             }
 
             .section-title {
-                font-size: 1.35rem;
+                font-size: 1.22rem;
             }
 
             .hero-actions .btn,
             .cta-buttons .btn {
                 padding: 12px 18px;
-                font-size: 0.85rem;
+                font-size: 0.82rem;
+            }
+
+            .services-grid,
+            .why-grid {
+                gap: 10px;
             }
         }
 
@@ -2634,11 +2706,11 @@
             <div class="mobile-contact">
                 <a href="https://wa.me/218925896472" target="_blank" rel="noopener" class="mobile-contact-item">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.89.53 3.66 1.44 5.18L2 22l4.99-1.31A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
-                    <span dir="ltr">0925896472</span>
+                    <span>واتساب</span>
                 </a>
                 <a href="tel:0925896472" class="mobile-contact-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    <span dir="ltr">0925896472</span>
+                    <span>اتصال</span>
                 </a>
                 <a href="https://www.facebook.com/share/1KHFKsvUVA/?mibextid=wwXIfr" target="_blank" rel="noopener" class="mobile-contact-item">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -2934,7 +3006,7 @@
                             <div class="contact-text">
                                 <span class="contact-label" data-i18n="contact_address_label">العنوان</span>
                                 <span class="contact-value" data-i18n="contact_address1">السراج - قرب كوبري الثلاجات</span>
-                                <span class="contact-value" data-i18n="contact_address2" style="font-size:0.85rem;color:var(--gray-500);">المدينة الرياضية - المجمع الاستثماري - الدور الثاني</span>
+                                <span class="contact-value" data-i18n="contact_address2">المدينة الرياضية - المجمع الاستثماري - الدور الثاني</span>
                             </div>
                         </div>
 
@@ -3067,7 +3139,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p data-i18n="footer_copyright">© 2024 شركة تفاصيل للمظلات الحديثة. جميع الحقوق محفوظة.</p>
+                <p data-i18n="footer_copyright">© 2026 شركة تفاصيل للمظلات الحديثة. جميع الحقوق محفوظة.</p>
                 <div class="footer-social">
                     <a href="https://wa.me/218925896472" target="_blank" rel="noopener" class="social-btn" aria-label="واتساب">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.89.53 3.66 1.44 5.18L2 22l4.99-1.31A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
@@ -3183,7 +3255,7 @@
                 footer_about: 'رؤية عصرية تُشرق بالتصميم والتنفيذ الاحترافي في عالم المظلات الحديثة.',
                 footer_links: 'روابط سريعة',
                 footer_contact: 'تواصل معنا',
-                footer_copyright: '© 2024 شركة تفاصيل للمظلات الحديثة. جميع الحقوق محفوظة.',
+                footer_copyright: '© 2026 شركة تفاصيل للمظلات الحديثة. جميع الحقوق محفوظة.',
                 map_btn: 'تواصل معنا عبر واتساب'
             },
             en: {
@@ -3256,7 +3328,7 @@
                 footer_about: 'A modern vision shining with professional design and execution in modern shades.',
                 footer_links: 'Quick Links',
                 footer_contact: 'Contact Us',
-                footer_copyright: '© 2024 Tafseel Modern Shades. All Rights Reserved.',
+                footer_copyright: '© 2026 Tafseel Modern Shades. All Rights Reserved.',
                 map_btn: 'Contact Us on WhatsApp'
             }
         };
@@ -3426,7 +3498,7 @@
                     const target = document.querySelector(id);
                     if (!target) return;
                     e.preventDefault();
-                    window.scrollTo({ top: target.offsetTop - 115, behavior: 'smooth' });
+                    window.scrollTo({ top: target.offsetTop - 105, behavior: 'smooth' });
                 });
             });
         }
