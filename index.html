@@ -69,9 +69,10 @@
             --t-normal: 0.5s var(--ease);
             --t-slow: 0.8s var(--ease);
 
-            --logo-size: 90px;
-            --header-height: 110px;
-            --header-height-scrolled: 78px;
+            /* ✅ الشريط العلوي: أصغر قليلاً */
+            --logo-size: 78px;
+            --header-height: 95px;
+            --header-height-scrolled: 70px;
         }
 
         *, *::before, *::after {
@@ -82,7 +83,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 120px;
+            scroll-padding-top: 105px;
             -webkit-tap-highlight-color: transparent;
             overflow-x: hidden;
             width: 100%;
@@ -143,7 +144,7 @@
             position: relative;
         }
 
-        /* ✅ تحسين شكل العناوين - مترابطة ومنفصلة */
+        /* ✅ تحسين شكل العناوين */
         .section-head {
             text-align: center;
             max-width: 720px;
@@ -307,7 +308,7 @@
             box-shadow: 0 12px 32px rgba(201, 168, 76, 0.45);
         }
 
-        /* HEADER */
+        /* ✅ HEADER - شفاف قليلاً في البداية، زجاجي عند النزول */
         .header {
             position: fixed;
             top: 0;
@@ -317,18 +318,22 @@
             height: var(--header-height);
             display: flex;
             align-items: center;
-            background: rgba(245, 247, 250, 0.75);
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
-            transition: height 0.4s var(--ease), background 0.3s ease, box-shadow 0.3s ease;
+            /* ✅ شفاف قليلاً في البداية بدون blur */
+            background: rgba(255, 255, 255, 0.55);
+            transition: height 0.4s var(--ease), background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease, border-bottom 0.4s ease;
             border: none;
-            box-shadow: none;
+            border-bottom: 1px solid transparent;
+            box-shadow: 0 2px 12px rgba(26, 42, 58, 0.04);
         }
 
+        /* ✅ عند النزول: زجاجي كامل مع blur وحدود */
         .header.scrolled {
-            background: rgba(245, 247, 250, 0.97);
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
             box-shadow: 0 8px 32px rgba(26, 42, 58, 0.1);
             height: var(--header-height-scrolled);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.6);
         }
 
         .header-inner {
@@ -342,7 +347,7 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 14px;
             flex-shrink: 0;
         }
 
@@ -354,13 +359,13 @@
             transition: height 0.4s var(--ease), width 0.4s var(--ease), transform 0.3s var(--ease), padding 0.4s var(--ease);
             background: linear-gradient(135deg, var(--color-primary-dark), var(--color-secondary-blue));
             border-radius: 50%;
-            padding: 10px;
+            padding: 9px;
             box-shadow: 0 6px 20px rgba(26, 42, 58, 0.25), 0 0 0 2px rgba(201, 168, 76, 0.3);
         }
 
         .header.scrolled .logo img {
-            height: 58px;
-            width: 58px;
+            height: 52px;
+            width: 52px;
             padding: 6px;
         }
 
@@ -377,7 +382,7 @@
 
         .logo-name {
             font-family: var(--font-heading);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--color-primary-dark);
             white-space: nowrap;
@@ -385,7 +390,7 @@
         }
 
         .header.scrolled .logo-name {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
         }
 
         .logo-name span {
@@ -393,7 +398,7 @@
         }
 
         .logo-tag {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--gray-500);
             font-weight: 500;
             white-space: nowrap;
@@ -401,7 +406,7 @@
         }
 
         .header.scrolled .logo-tag {
-            font-size: 0.72rem;
+            font-size: 0.7rem;
         }
 
         .nav {
@@ -439,16 +444,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-width: 52px;
-            height: 52px;
-            padding: 0 18px;
+            min-width: 46px;
+            height: 46px;
+            padding: 0 16px;
             border-radius: var(--r-full);
             background: var(--glass-bg-strong);
             backdrop-filter: var(--glass-blur);
             -webkit-backdrop-filter: var(--glass-blur);
             color: var(--color-primary-dark);
             font-family: var(--font-heading);
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             font-weight: 700;
             border: 1.5px solid var(--glass-border);
             transition: all 0.4s var(--ease);
@@ -456,9 +461,9 @@
         }
 
         .header.scrolled .lang-btn {
-            min-width: 44px;
-            height: 44px;
-            font-size: 0.8rem;
+            min-width: 42px;
+            height: 42px;
+            font-size: 0.78rem;
         }
 
         .lang-btn:hover {
@@ -469,14 +474,14 @@
 
         .header-cta {
             display: none;
-            padding: 15px 28px;
-            font-size: 0.92rem;
+            padding: 13px 24px;
+            font-size: 0.9rem;
             transition: padding 0.4s var(--ease), font-size 0.4s var(--ease);
         }
 
         .header.scrolled .header-cta {
-            padding: 11px 22px;
-            font-size: 0.85rem;
+            padding: 10px 20px;
+            font-size: 0.84rem;
         }
 
         .hamburger {
@@ -484,8 +489,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            width: 52px;
-            height: 52px;
+            width: 46px;
+            height: 46px;
             border-radius: var(--r-full);
             background: linear-gradient(135deg, var(--color-primary-dark), var(--color-secondary-blue));
             gap: 5px;
@@ -495,8 +500,8 @@
         }
 
         .header.scrolled .hamburger {
-            width: 44px;
-            height: 44px;
+            width: 42px;
+            height: 42px;
         }
 
         .hamburger span {
@@ -527,7 +532,7 @@
             top: var(--header-height);
             left: 0;
             right: 0;
-            background: rgba(245, 247, 250, 0.98);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(24px) saturate(180%);
             -webkit-backdrop-filter: blur(24px) saturate(180%);
             border: none;
@@ -616,7 +621,7 @@
         /* HERO */
         .hero {
             position: relative;
-            padding: 180px 0 120px;
+            padding: 165px 0 120px;
             overflow: hidden;
             min-height: 100vh;
             display: flex;
@@ -1590,7 +1595,6 @@
             padding-bottom: 48px;
         }
 
-        /* ✅ شعار الفوتر lo.png */
         .footer-brand-logo {
             height: 100px;
             width: 100px;
@@ -1681,7 +1685,6 @@
             flex-shrink: 0;
         }
 
-        /* ✅ روابط التواصل الاجتماعي في الفوتر - كل رابط لوحده */
         .footer-social-list {
             display: flex;
             flex-direction: column;
@@ -2177,13 +2180,13 @@
             }
         }
 
-        /* ✅ RESPONSIVE - MOBILE مع تكبير الشعار */
+        /* RESPONSIVE - MOBILE */
         @media (max-width: 767px) {
             :root {
                 --section-y: 56px;
-                --logo-size: 95px;
-                --header-height: 115px;
-                --header-height-scrolled: 80px;
+                --logo-size: 88px;
+                --header-height: 105px;
+                --header-height-scrolled: 74px;
             }
 
             .container {
@@ -2197,29 +2200,29 @@
             .logo img {
                 height: var(--logo-size);
                 width: var(--logo-size);
-                padding: 10px;
+                padding: 9px;
             }
 
             .header.scrolled .logo img {
-                height: 64px;
-                width: 64px;
-                padding: 7px;
+                height: 58px;
+                width: 58px;
+                padding: 6px;
             }
 
             .logo-name {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
             }
 
             .header.scrolled .logo-name {
-                font-size: 0.95rem;
+                font-size: 0.92rem;
             }
 
             .logo-tag {
-                font-size: 0.7rem;
+                font-size: 0.68rem;
             }
 
             .header.scrolled .logo-tag {
-                font-size: 0.62rem;
+                font-size: 0.6rem;
             }
 
             .mobile-menu {
@@ -2227,7 +2230,7 @@
             }
 
             .hero {
-                padding: 160px 0 70px;
+                padding: 145px 0 70px;
                 min-height: auto;
             }
 
@@ -2489,9 +2492,9 @@
 
         @media (max-width: 380px) {
             :root {
-                --header-height: 105px;
-                --header-height-scrolled: 76px;
-                --logo-size: 85px;
+                --header-height: 98px;
+                --header-height-scrolled: 70px;
+                --logo-size: 80px;
             }
 
             .container {
@@ -2499,15 +2502,15 @@
             }
 
             .logo-name {
-                font-size: 0.95rem;
+                font-size: 0.92rem;
             }
 
             .header.scrolled .logo-name {
-                font-size: 0.85rem;
+                font-size: 0.82rem;
             }
 
             .logo-tag {
-                font-size: 0.6rem;
+                font-size: 0.58rem;
             }
 
             .hero-visual-wrap {
@@ -2864,7 +2867,7 @@
             </div>
         </section>
 
-        <!-- STATS - ✅ تم إزالة "14 مشروع منجز" -->
+        <!-- STATS -->
         <section class="section stats">
             <div class="container">
                 <div class="stats-grid">
@@ -2935,7 +2938,6 @@
                             </div>
                         </div>
 
-                        <!-- ✅ روابط التواصل الاجتماعي منفصلة -->
                         <div class="contact-item reveal reveal-delay-3">
                             <div class="contact-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
@@ -3045,7 +3047,6 @@
                             </div>
                         </div>
 
-                        <!-- ✅ روابط التواصل الاجتماعي في الفوتر - كل رابط لوحده -->
                         <div class="footer-social-list">
                             <a href="https://www.facebook.com/share/1KHFKsvUVA/?mibextid=wwXIfr" target="_blank" rel="noopener" class="footer-social-item facebook">
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -3425,7 +3426,7 @@
                     const target = document.querySelector(id);
                     if (!target) return;
                     e.preventDefault();
-                    window.scrollTo({ top: target.offsetTop - 130, behavior: 'smooth' });
+                    window.scrollTo({ top: target.offsetTop - 115, behavior: 'smooth' });
                 });
             });
         }
